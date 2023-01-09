@@ -1,5 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
+import { useAppContext } from '../store/Store'
+import {  useNavigate } from 'react-router-dom'
+import Layout from '../components/Layout'
+import styles from './Create.module.css'
 
 
 function Create() {
@@ -9,6 +13,11 @@ function Create() {
   const [intro, setIntro] = useState("")
   const [completed, setCompleted] = useState(false)
   const [review, setReview] = useState("")
+  
+  
+  //importando contexto
+  const store = useAppContext();
+  const navigate = useNavigate();
   
   
   const  handleChange = (e) => {
@@ -50,7 +59,7 @@ function Create() {
   }
   
   const handleSubmit = (e) => {
-    e.prevent.Default()
+    e.preventDefault();
     
     const newBook = {
       id: crypto.randomUUID(),
@@ -61,35 +70,75 @@ function Create() {
       completed,
       review
     }
-    //TODO REGISTER BOOK
+    //TODO REGISTER BOOK createa  new book
+    store.createItem(newBook);
+    navigate('/')
   }
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <Layout>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
+      <div className={styles.inputCreate}>
         <div>
-          <div>TITLE</div>
-          <input 
-            type="text"
-            name="title"
-            onChange={handleChange} 
-            value={title}
-          />
-          {title}
-        </div>
+            <div>TITLE</div>
+            <input 
+              type="text"
+              name="title"
+              onChange={handleChange} 
+              value={title}
+            />
+
+          </div>
+          
+          <div>
+            <div>Author</div>
+            <input 
+              type="text"
+              name="author"
+              onChange={handleChange} 
+              value={author}
+            />
+      
+          </div>
         
-        <div>
-          <div>Author</div>
-          <input 
-            type="text"
-            name="author"
-            onChange={handleChange} 
-            value={author}
-          />
-    
-        </div>
+          
+          <div>
+            <div>Intro</div>
+            <input 
+              type="text"
+              name="intro"
+              onChange={handleChange} 
+              value={intro}
+            />
+      
+          </div>
+          
+          <div>
+            <div>Completed</div>
+            <input 
+              type="checkbox"
+              name="completed"
+              onChange={handleChange} 
+              value={completed}
+            />
+      
+          </div>
+          
+          <div>
+            <div>Review</div>
+            <input 
+              type="text"
+              name="review"
+              onChange={handleChange} 
+              value={review}
+            />
+      
+          </div>
         
-        <div>
+        </div> 
+        
+        
+        <div className={styles.imageCreate}>
           <div>Cover</div>
           <input 
             type="file"
@@ -97,46 +146,13 @@ function Create() {
             onChange={handleOnChangeFile} 
             // value={cover}
           />
-          <div>{!!cover ? <img src={cover} alt="cover" width='200' /> : ""}</div>
+          <div>{!!cover ? <img src={cover} alt="cover" width='150' margin='5px' /> : ""}</div>
+          <input type="submit" value="Register book" className={styles.buttonCreate} />
         </div>
         
-        <div>
-          <div>Intro</div>
-          <input 
-            type="text"
-            name="intro"
-            onChange={handleChange} 
-            value={intro}
-          />
-    
-        </div>
-        
-        <div>
-          <div>Completed</div>
-          <input 
-            type="checkbox"
-            name="completed"
-            onChange={handleChange} 
-            value={completed}
-          />
-    
-        </div>
-        
-        <div>
-          <div>Review</div>
-          <input 
-            type="text"
-            name="review"
-            onChange={handleChange} 
-            value={review}
-          />
-    
-        </div>
-        
-        <input type="submit" value="Register book" />
         
       </form>
-    </div>
+    </Layout>
   )
 }
 

@@ -1,0 +1,33 @@
+.footerContainer{
+
+    position:fixed;
+    left:2px ;
+    bottom:0px;
+    width: 98%;
+    height: 40px;
+    margin: 10px auto;
+    background-color: rgb(98, 84, 67);
+    padding: 5px;
+    box-sizing: content-box;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 22px 21px, rgba(0, 0, 0, 0.12) 0px -6px 15px, rgba(0, 0, 0, 0.12) 0px 2px 3px, rgba(0, 0, 0, 0.17) 0px 6px 6px, rgba(0, 0, 0, 0.09) 0px -1px 2px;
+    background-image: url('https://krugercorp.com/wp-content/uploads/2022/10/bg-menu-e1647277565718.png');
+    justify-content: center;
+    padding: "10px";
+    display: "flex";
+    overflow-y: hidden;
+    flex: 0 0 auto;
+}
+
+
+@media (max-width: 600px){
+    
+    .footerContainer{
+        width: 90%;
+        position:fixed;
+        left:3px ;
+        bottom:0px;
+        font-size: 70%;
+
+        
+    }
+}
