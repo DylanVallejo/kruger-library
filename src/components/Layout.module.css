@@ -1,0 +1,23 @@
+.containerStyle{
+    height: 200px;
+    width: auto;
+    height: auto;
+    margin:  auto;
+    /* background-color:aqua ; */
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* @media (max-width: 600px){
+    
+    .containerStyle{
+        margin: auto;
+        overflow-y: scroll;
+        overflow-y: hidden;
+        
+    }
+} */

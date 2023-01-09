@@ -1,0 +1,36 @@
+
+.navContainerStyle {
+    margin: 10px auto 10px auto;
+    width: 98%;
+    height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #181d27;
+    padding: "10px";
+    display: "flex";
+    gap: "5px";
+    justify-content: center;
+    background-image: url('https://krugercorp.com/wp-content/uploads/2022/10/bg-menu-e1647277565718.png');
+    text-align: center
+    
+};
+.navContainerStyle>.linkStyle > a{
+    margin-right:20px;
+}
+.linkStyle {
+    display: "block";
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: auto;
+    margin-right: 10px
+    
+};
+.linkStyle:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
